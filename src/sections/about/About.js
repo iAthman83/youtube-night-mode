@@ -1,14 +1,24 @@
 import "./about.css";
 import { TitleComponent } from "../../components/index";
 import aboutImg from "../../assets/profile.jpg";
+import { useContext } from "react";
+import { ThemeContext } from "../../context";
+
+const crimson = "#dc143c";
 
 const About = () => {
+  const theme = useContext(ThemeContext);
+  const night = theme.state.nightMode;
+
   return (
     <div className="about-parent">
       <TitleComponent secondary="Who am i?" primary="My Story" />
       <div className="about">
         <div className="about-left">
-          <div className="about-card">
+          <div
+            style={{ boxShadow: night && `-8px 8px 2px 2px ${crimson}` }}
+            className="about-card"
+          >
             <img className="about-img" src={aboutImg} alt="About Image" />
           </div>
         </div>

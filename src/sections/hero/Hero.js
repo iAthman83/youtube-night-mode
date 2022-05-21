@@ -1,10 +1,18 @@
 import "./hero.css";
 import profile from "../../assets/profile.jpg";
+import { useContext } from "react";
+import { ThemeContext } from "../../context";
 
 const Hero = () => {
+  const theme = useContext(ThemeContext);
+  const night = theme.state.nightMode;
+
   return (
-    <div className="hero">
-      <div className="custom-shape-divider-bottom-1650973913">
+    <div className="hero" style={{ background: night && "#222222" }}>
+      <div
+        className="custom-shape-divider-bottom-1650973913"
+        style={{ display: night && "none" }}
+      >
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
